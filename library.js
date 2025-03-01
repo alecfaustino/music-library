@@ -72,18 +72,28 @@ const printPlaylist = (playlistId) => {
 // printPlaylist("p01");
 
 // // adds an existing track to an existing playlist
-// const addTrackToPlaylist = function(trackId, playlistId) { // input is the trackId and the playlist it's adding to
-//        console.log(trackId, playlistId);
-// }
+const addTrackToPlaylist = function(trackId, playlistId) { // input is the trackId and the playlist it's adding to
+       //push the trackId to library.playists.playlistId.tracks 
+       const playlistTracksArr = library.playlists[playlistId].tracks; // is the array of the current tracks 
+       // console.log(playlistTracksArr);
+       playlistTracksArr.push(trackId);
+       // console.log(playlistTracksArr);
+}
 
-// addTrackToPlaylist("t02", "p02");
+printPlaylist("p02")
+console.log( "Original ----");
+addTrackToPlaylist("t02", "p02");
+printPlaylist("p02");
+console.log("After"); 
+console.log("@@@@@@@@@@@@@@@@");
+console.log(library.playlists.p02.tracks); // the original library has changed
 
 
-// // generates a unique id
-// // (already implemented: use this for addTrack and addPlaylist)
-// const generateUid = function() {
-//   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-// }
+// generates a unique id
+// (already implemented: use this for addTrack and addPlaylist)
+const generateUid = () => {
+  return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+}
 
 
 // // adds a track to the library
